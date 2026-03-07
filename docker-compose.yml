@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    environment:
+      DB_HOST: db
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: pos_db
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"

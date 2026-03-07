@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Kamu bisa hapus semua kode bawaan React/Vite yang ada di bawahnya 
+   agar styling-nya bersih dan tidak bentrok */
+   
+:root {
+  scroll-behavior: smooth; /* Agar saat klik menu 'Story', scrol-nya halus */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Mencegah layar geser ke kanan-kiri di HP */
+}
