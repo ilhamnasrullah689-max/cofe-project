@@ -18,8 +18,8 @@ export default function LandingPage() {
       >
         <div className="absolute inset-0 bg-black/60"></div>
         
-        {/* Nav: Tengah di HP, Sejajar di Desktop */}
-        <nav className="absolute top-0 w-full flex justify-center md:justify-between items-center p-6 md:p-8 z-20 text-white">
+        {/* Navigasi */}
+        <nav className="absolute top-0 w-full flex justify-between items-center p-6 md:p-8 z-20 text-white">
           <div className="text-lg md:text-xl font-bold tracking-[0.2em]">ZHICO COFFEE</div>
           <div className="hidden md:flex gap-10 text-xs uppercase tracking-widest">
             <Link to="/" className="hover:text-amber-400 transition text-white no-underline">Home</Link>
@@ -150,41 +150,47 @@ export default function LandingPage() {
         )}
       </AnimatePresence>
 
-      {/* --- 5. FOOTER --- */}
-      <footer id="contact" className="bg-[#121212] text-white py-16 px-6 text-center md:text-left">
+      {/* --- 5. FOOTER (Optimasi 4 Kolom untuk HP) --- */}
+      <footer id="contact" className="bg-[#121212] text-white py-16 px-4 md:px-6 text-left">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 items-center md:items-start border-b border-white/5 pb-12">
-            <div className="space-y-4 flex flex-col items-center md:items-start">
-              <h3 className="text-xl font-bold tracking-widest uppercase">ZHICO COFFEE.</h3>
-              <p className="text-gray-500 italic text-xs">"Serenity in every cup."</p>
-              <div className="flex gap-4 text-xl text-gray-400">
+          {/* Grid dipaksa tetap 4 kolom di layar kecil (grid-cols-4) */}
+          <div className="grid grid-cols-4 gap-4 items-start border-b border-white/5 pb-12">
+            
+            {/* Kolom 1: Brand */}
+            <div className="space-y-4">
+              <h3 className="text-[10px] md:text-xl font-bold tracking-tighter md:tracking-widest uppercase">ZHICO.</h3>
+              <p className="text-gray-500 italic text-[7px] md:text-xs leading-tight">"Serenity in every cup."</p>
+              <div className="flex gap-2 md:gap-4 text-xs md:text-xl text-gray-400">
                 <FaInstagram className="hover:text-white cursor-pointer transition" /> 
                 <FaWhatsapp className="hover:text-white cursor-pointer transition" /> 
-                <FaEnvelope className="hover:text-white cursor-pointer transition" />
               </div>
             </div>
 
+            {/* Kolom 2: Lokasi */}
             <div>
-              <h4 className="text-[10px] uppercase tracking-[0.3em] text-amber-400 mb-4 font-bold">Lokasi</h4>
-              <p className="text-xs text-gray-400 leading-relaxed italic">Jl. Merbabu No. 123, <br/>Kota Malang, Jawa Timur</p>
+              <h4 className="text-[7px] md:text-[10px] uppercase tracking-[0.1em] md:tracking-[0.3em] text-amber-400 mb-4 font-bold">Lokasi</h4>
+              <p className="text-[7px] md:text-xs text-gray-400 leading-tight italic">Jl. Merbabu 123, <br/>Malang</p>
             </div>
 
+            {/* Kolom 3: Jam Buka */}
             <div>
-              <h4 className="text-[10px] uppercase tracking-[0.3em] text-amber-400 mb-4 font-bold">Jam Buka</h4>
-              <p className="text-xs text-gray-400">Setiap Hari<br/>09:00 — 23:00</p>
+              <h4 className="text-[7px] md:text-[10px] uppercase tracking-[0.1em] md:tracking-[0.3em] text-amber-400 mb-4 font-bold">Buka</h4>
+              <p className="text-[7px] md:text-xs text-gray-400 leading-tight">09:00 — 23:00</p>
             </div>
 
-            <div className="w-full flex flex-col items-center md:items-start">
-              <h4 className="text-[10px] uppercase tracking-[0.3em] text-amber-400 mb-4 font-bold">Find Us</h4>
-              <div className="w-full h-32 rounded overflow-hidden grayscale contrast-125 invert-[0.05] border border-white/5 shadow-lg">
+            {/* Kolom 4: Find Us */}
+            <div className="w-full">
+              <h4 className="text-[7px] md:text-[10px] uppercase tracking-[0.1em] md:tracking-[0.3em] text-amber-400 mb-4 font-bold">Find Us</h4>
+              <div className="w-full h-10 md:h-32 rounded overflow-hidden grayscale contrast-125 invert-[0.05] border border-white/5 shadow-lg">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.2138379651546!2d112.61905587487132!3d-7.976824379524796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7882810a9a838d%3A0xc6a88544e83f232!2sJl.%20Merbabu%2C%20Malang%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
-                  width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+                  width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy"
                 ></iframe>
               </div>
             </div>
           </div>
-          <div className="pt-8 text-[9px] uppercase tracking-widest text-gray-600 text-center">
+
+          <div className="pt-8 text-[8px] uppercase tracking-widest text-gray-600 text-center">
             © 2026 Zhico Coffee. Malang, East Java. All Rights Reserved.
           </div>
         </div>
