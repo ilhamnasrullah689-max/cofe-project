@@ -13,12 +13,10 @@ export default function LandingPage() {
       
       {/* --- 1. HERO SECTION --- */}
       <section 
-        className="relative min-h-[90vh] md:h-screen bg-cover bg-center flex items-center justify-start" 
+        className="relative min-h-[90vh] md:h-screen bg-cover bg-center flex items-center" 
         style={{ backgroundImage: `url(${coffeePhotos.hero})` }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
-        
-        {/* Navigasi: Tetap rata kiri-kanan */}
         <nav className="absolute top-0 w-full flex justify-between items-center p-6 md:p-8 z-20 text-white">
           <div className="text-lg md:text-xl font-bold tracking-[0.2em]">ZHICO COFFEE</div>
           <div className="hidden md:flex gap-10 text-xs uppercase tracking-widest">
@@ -28,7 +26,7 @@ export default function LandingPage() {
           </div>
         </nav>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 w-full text-white pt-20 text-left">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 w-full text-white pt-20">
           <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold leading-[1.1] mb-8 text-left">
             Brewing <br />
             <span className="text-amber-400 italic font-light block md:inline md:ml-24">Peace</span> <br />
@@ -47,14 +45,14 @@ export default function LandingPage() {
 
       {/* --- 2. STORY SECTION --- */}
       <section id="story" className="py-16 md:py-24 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-        <div className="order-2 md:order-1 text-left flex flex-col items-start">
+        <div className="order-2 md:order-1 text-left">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 italic">The Art of Our Roasting</h2>
           <p className="text-gray-600 leading-relaxed mb-8 text-base md:text-lg">
             Berawal dari kurasi biji kopi lokal terbaik, kami memanggang dedikasi menjadi segelas pengalaman yang tak terlupakan. Kopi berkualitas, diseduh dengan hati. 
           </p>
           <button 
             onClick={() => setShowStoryModal(true)}
-            className="relative z-10 cursor-pointer border-b-2 border-black pb-1 text-xs font-bold uppercase tracking-widest hover:text-amber-600 transition"
+            className="border-b-2 border-black pb-1 text-xs font-bold uppercase tracking-widest hover:text-amber-600 transition"
           >
             Explore Our Story →
           </button>
@@ -76,7 +74,7 @@ export default function LandingPage() {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {coffeePhotos.spaces.map((space, idx) => (
-              <div key={idx} className="group text-left">
+              <div key={idx} className="group">
                 <div className="relative overflow-hidden aspect-[3/4] mb-3 bg-zinc-200 shadow-md">
                   <img src={space.img} alt={space.name} className="w-full h-full object-cover transition duration-700 group-hover:scale-110" />
                 </div>
@@ -92,7 +90,7 @@ export default function LandingPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-left">
           <div className="relative h-[300px] md:h-full rounded-lg overflow-hidden shadow-lg border border-zinc-100">
             <img src={coffeePhotos.signature} className="w-full h-full object-cover" alt="Latte" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-start p-6">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
               <h3 className="text-white text-xl md:text-3xl font-bold uppercase">Signature Latte</h3>
             </div>
           </div>
@@ -101,9 +99,9 @@ export default function LandingPage() {
               <img src={coffeePhotos.coldBrew} className="w-full h-40 md:h-64 object-cover rounded shadow" alt="Cold Brew" />
               <img src={coffeePhotos.gulaAren} className="w-full h-40 md:h-64 object-cover rounded shadow" alt="Gula Aren" />
             </div>
-            <div className="bg-zinc-900 text-white p-6 md:p-10 rounded-lg flex flex-col items-start">
+            <div className="bg-zinc-900 text-white p-6 md:p-10 rounded-lg">
               <h4 className="text-lg md:text-xl font-bold mb-3 uppercase text-amber-400">Our Coffee List</h4>
-              <p className="text-gray-400 mb-6 text-xs md:text-sm leading-relaxed">
+              <p className="text-gray-400 mb-6 text-xs md:text-sm leading-relaxed text-left">
                 Nikmati pilihan menu terbaik kami dari biji kopi pilihan Malang.
               </p>
               <Link to="/menu" className="inline-block w-full py-4 bg-white text-black font-bold uppercase text-[10px] tracking-[0.2em] text-center hover:bg-amber-400 transition no-underline">
@@ -135,7 +133,7 @@ export default function LandingPage() {
               </div>
               <div className="p-8 md:p-12 md:w-1/2 flex flex-col justify-center">
                 <span className="text-amber-400 text-[10px] uppercase tracking-[0.5em] font-bold mb-4">Behind the Beans</span>
-                <h2 className="text-3xl font-bold mb-8 italic">The Process.</h2>
+                <h2 className="text-3xl font-bold mb-8 italic text-left">The Process.</h2>
                 <div className="space-y-6">
                   {coffeePhotos.behindTheBeans.steps.map((item, idx) => (
                     <div key={idx} className="border-l border-white/10 pl-6 hover:border-amber-400 transition-colors">
@@ -150,35 +148,34 @@ export default function LandingPage() {
         )}
       </AnimatePresence>
 
-      {/* --- 5. FOOTER (Tetap 4 Kolom & Rata Kiri di HP) --- */}
+      {/* --- 5. FOOTER (Optimasi 4 Kolom HP Sejajar Ke Samping) --- */}
       <footer id="contact" className="bg-[#121212] text-white py-16 px-4 md:px-6 text-left">
         <div className="max-w-7xl mx-auto">
-          {/* grid-cols-4 memaksa berjejer kesamping */}
-          {/* items-start memastikan sejajar dari atas (rata kiri-atas) */}
+          {/* Menggunakan grid-cols-4 langsung agar tetap berjejer di layar kecil */}
           <div className="grid grid-cols-4 gap-2 md:gap-12 items-start border-b border-white/5 pb-12">
             
-            <div className="flex flex-col items-start space-y-4">
-              <h3 className="text-[10px] md:text-xl font-bold tracking-tighter md:tracking-widest uppercase">ZHICO.</h3>
+            <div className="space-y-4">
+              <h3 className="text-[10px] md:text-xl font-bold tracking-tighter md:tracking-widest uppercase">ZHICO COFFEE</h3>
               <p className="text-gray-500 italic text-[7px] md:text-xs leading-tight">"Serenity in every cup."</p>
-              <div className="flex gap-2 text-gray-400 text-[10px] md:text-xl">
+              <div className="flex gap-2 text-xs md:text-xl text-gray-400">
                 <FaInstagram className="hover:text-white cursor-pointer transition" /> 
                 <FaWhatsapp className="hover:text-white cursor-pointer transition" /> 
               </div>
             </div>
 
-            <div className="flex flex-col items-start">
-              <h4 className="text-[7px] md:text-[10px] uppercase tracking-widest text-amber-400 mb-4 font-bold">Lokasi</h4>
-              <p className="text-[7px] md:text-xs text-gray-400 leading-tight italic">Jl. Merbabu 123, <br/>Malang</p>
+            <div>
+              <h4 className="text-[7px] md:text-[10px] uppercase tracking-widest text-amber-400 mb-3 font-bold">Lokasi</h4>
+              <p className="text-[7px] md:text-xs text-gray-400 leading-tight italic">Jl. Merbabu No. 123, <br/>Malang</p>
             </div>
 
-            <div className="flex flex-col items-start">
-              <h4 className="text-[7px] md:text-[10px] uppercase tracking-widest text-amber-400 mb-4 font-bold">Jam Buka</h4>
-              <p className="text-[7px] md:text-xs text-gray-400 leading-tight">09:00 — 23:00</p>
+            <div>
+              <h4 className="text-[7px] md:text-[10px] uppercase tracking-widest text-amber-400 mb-3 font-bold">Jam</h4>
+              <p className="text-[7px] md:text-xs text-gray-400 leading-tight">Setiap Hari<br/>09:00 — 23:00</p>
             </div>
 
-            <div className="flex flex-col items-start w-full">
-              <h4 className="text-[7px] md:text-[10px] uppercase tracking-widest text-amber-400 mb-4 font-bold">Find Us</h4>
-              <div className="w-full h-10 md:h-32 rounded overflow-hidden grayscale border border-white/5 shadow-lg">
+            <div className="w-full">
+              <h4 className="text-[7px] md:text-[10px] uppercase tracking-widest text-amber-400 mb-3 font-bold">Find Us</h4>
+              <div className="w-full h-10 md:h-32 rounded overflow-hidden grayscale contrast-125 invert-[0.05] border border-white/5 shadow-lg">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.2138379651546!2d112.61905587487132!3d-7.976824379524796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7882810a9a838d%3A0xc6a88544e83f232!2sJl.%20Merbabu%2C%20Malang%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
                   width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy"
@@ -186,9 +183,8 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-          
-          <div className="pt-8 text-[8px] uppercase tracking-widest text-gray-600 text-left">
-            © 2026 Zhico Coffee. Malang.
+          <div className="pt-8 text-[8px] md:text-[9px] uppercase tracking-widest text-gray-600 text-center">
+            © 2026 Zhico Coffee. Malang, East Java.
           </div>
         </div>
       </footer>
