@@ -7,7 +7,7 @@ export const coffeePhotos = {
   spaces: [
     { name: "The Work Oasis", img: "https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=600" },
     { name: "The Cozy Corner", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600" },
-    { name: "Idea Forge", img: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?q=80&w=600" },
+    { name: "Idea Forge", img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1000&auto=format&fit=cropq=80&w=600" },
     { name: "Comfort Cove", img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600" },
   ],
   behindTheBeans: {
