@@ -13,11 +13,13 @@ export default function LandingPage() {
       
       {/* --- 1. HERO SECTION --- */}
       <section 
-        className="relative min-h-[90vh] md:h-screen bg-cover bg-center flex items-center" 
+        className="relative min-h-[90vh] md:h-screen bg-cover bg-center flex items-center justify-center md:justify-start" 
         style={{ backgroundImage: `url(${coffeePhotos.hero})` }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
-        <nav className="absolute top-0 w-full flex justify-between items-center p-6 md:p-8 z-20 text-white">
+        
+        {/* Nav: Tengah di HP, Sejajar di Desktop */}
+        <nav className="absolute top-0 w-full flex justify-center md:justify-between items-center p-6 md:p-8 z-20 text-white">
           <div className="text-lg md:text-xl font-bold tracking-[0.2em]">ZHICO COFFEE</div>
           <div className="hidden md:flex gap-10 text-xs uppercase tracking-widest">
             <Link to="/" className="hover:text-amber-400 transition text-white no-underline">Home</Link>
@@ -26,13 +28,13 @@ export default function LandingPage() {
           </div>
         </nav>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 w-full text-white pt-20">
-          <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold leading-[1.1] mb-8 text-left">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 w-full text-white pt-20 text-center md:text-left">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold leading-[1.1] mb-8">
             Brewing <br />
             <span className="text-amber-400 italic font-light block md:inline md:ml-24">Peace</span> <br />
             In Every Cup.
           </h1>
-          <div className="flex flex-col sm:flex-row gap-4 justify-start">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <a href="#contact" className="w-full sm:w-auto px-8 py-4 border border-white uppercase text-[10px] tracking-[0.2em] text-center hover:bg-white hover:text-black transition no-underline text-white">
               Book a Table
             </a>
@@ -45,14 +47,14 @@ export default function LandingPage() {
 
       {/* --- 2. STORY SECTION --- */}
       <section id="story" className="py-16 md:py-24 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-        <div className="order-2 md:order-1 text-left">
+        <div className="order-2 md:order-1 text-center md:text-left flex flex-col items-center md:items-start">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 italic">The Art of Our Roasting</h2>
           <p className="text-gray-600 leading-relaxed mb-8 text-base md:text-lg">
             Berawal dari kurasi biji kopi lokal terbaik, kami memanggang dedikasi menjadi segelas pengalaman yang tak terlupakan. Kopi berkualitas, diseduh dengan hati. 
           </p>
           <button 
             onClick={() => setShowStoryModal(true)}
-            className="border-b-2 border-black pb-1 text-xs font-bold uppercase tracking-widest hover:text-amber-600 transition"
+            className="relative z-10 cursor-pointer border-b-2 border-black pb-1 text-xs font-bold uppercase tracking-widest hover:text-amber-600 transition"
           >
             Explore Our Story →
           </button>
@@ -68,9 +70,9 @@ export default function LandingPage() {
 
       {/* --- 3. AMBIENCE SECTION --- */}
       <section className="py-16 md:py-24 bg-zinc-50 px-6">
-        <div className="max-w-7xl mx-auto text-left">
-          <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tighter mb-10 border-l-4 border-amber-400 pl-4">
-            A Unique Room to <br/> Work and Chill
+        <div className="max-w-7xl mx-auto text-center md:text-left">
+          <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tighter mb-10 md:border-l-4 border-amber-400 md:pl-4">
+            A Unique Room to <br className="hidden md:block"/> Work and Chill
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {coffeePhotos.spaces.map((space, idx) => (
@@ -87,10 +89,10 @@ export default function LandingPage() {
 
       {/* --- 4. SIGNATURE MENU SECTION --- */}
       <section id="menu" className="py-16 md:py-24 px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-center md:text-left">
           <div className="relative h-[300px] md:h-full rounded-lg overflow-hidden shadow-lg border border-zinc-100">
             <img src={coffeePhotos.signature} className="w-full h-full object-cover" alt="Latte" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center md:justify-start p-6">
               <h3 className="text-white text-xl md:text-3xl font-bold uppercase">Signature Latte</h3>
             </div>
           </div>
@@ -99,7 +101,7 @@ export default function LandingPage() {
               <img src={coffeePhotos.coldBrew} className="w-full h-40 md:h-64 object-cover rounded shadow" alt="Cold Brew" />
               <img src={coffeePhotos.gulaAren} className="w-full h-40 md:h-64 object-cover rounded shadow" alt="Gula Aren" />
             </div>
-            <div className="bg-zinc-900 text-white p-6 md:p-10 rounded-lg">
+            <div className="bg-zinc-900 text-white p-6 md:p-10 rounded-lg flex flex-col items-center md:items-start">
               <h4 className="text-lg md:text-xl font-bold mb-3 uppercase text-amber-400">Our Coffee List</h4>
               <p className="text-gray-400 mb-6 text-xs md:text-sm leading-relaxed">
                 Nikmati pilihan menu terbaik kami dari biji kopi pilihan Malang.
@@ -149,10 +151,10 @@ export default function LandingPage() {
       </AnimatePresence>
 
       {/* --- 5. FOOTER --- */}
-      <footer id="contact" className="bg-[#121212] text-white py-16 px-6 text-left">
+      <footer id="contact" className="bg-[#121212] text-white py-16 px-6 text-center md:text-left">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 items-start border-b border-white/5 pb-12">
-            <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 items-center md:items-start border-b border-white/5 pb-12">
+            <div className="space-y-4 flex flex-col items-center md:items-start">
               <h3 className="text-xl font-bold tracking-widest uppercase">ZHICO COFFEE.</h3>
               <p className="text-gray-500 italic text-xs">"Serenity in every cup."</p>
               <div className="flex gap-4 text-xl text-gray-400">
@@ -172,8 +174,7 @@ export default function LandingPage() {
               <p className="text-xs text-gray-400">Setiap Hari<br/>09:00 — 23:00</p>
             </div>
 
-            {/* MAPS TERBARU (AREA MALANG) */}
-            <div className="w-full">
+            <div className="w-full flex flex-col items-center md:items-start">
               <h4 className="text-[10px] uppercase tracking-[0.3em] text-amber-400 mb-4 font-bold">Find Us</h4>
               <div className="w-full h-32 rounded overflow-hidden grayscale contrast-125 invert-[0.05] border border-white/5 shadow-lg">
                 <iframe 
