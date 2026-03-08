@@ -1,12 +1,21 @@
 import React from "react";
-import LandingPage from "./components/LandingPage"; // Pastikan path ini benar
-import "./index.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Alamat import yang sudah diperbaiki
+import LandingPage from "./components/LandingPage.jsx"; 
+import Menu from "./Menu.jsx"; 
 
 function App() {
   return (
-    <div className="App">
-      <LandingPage />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="*" element={<LandingPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
